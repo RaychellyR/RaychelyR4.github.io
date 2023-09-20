@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Sua Empresa</title>
+    <link rel="stylesheet" type="text/css" href="css/estilos.css">
+    <style>
+        /* Estilos globais */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        /* Estilos da área de contato */
+        .contact-container {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .company-logo {
+            max-width: 200px; /* Tamanho máximo do logo */
+            margin: 0 auto; /* Centraliza o logo horizontalmente */
+            display: block;
+        }
+
+        .company-name {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+
+        .company-address {
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        .social-media-icons {
+            margin-top: 20px;
+        }
+
+        .social-media-icons a {
+            font-size: 24px;
+            margin-right: 10px;
+            color: #333;
+            text-decoration: none;
+        }
+
+        /* Estilos do cabeçalho */
+
+        
+        .main-header {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .main-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .main-nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        .main-nav ul li:last-child {
+            margin-right: 0;
+        }
+
+        .main-nav ul li a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .main-nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .social-media {
+            font-size: 24px;
+        }
+
+        /* Estilos do rodapé */
+        .main-footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .footer-content {
+            font-size: 14px;
+        }
+
+        /* Estilos do corpo */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            padding-bottom: 60px;
+        }
+
+        /* REDES SOCIAIS */ 
+
+        .btn_social { 
+
+width:100%; 
+float:left; 
+display:flex; 
+margin:auto; 
+}
+
+.btn_social ul  { 
+
+width:auto; 
+margin:auto; 
+float:left; 
+display:block; 
+}
+
+.btn_social ul li  { 
+
+position:relative; 
+background:#555555; 
+list-style:none; 
+float:left; 
+margin:5px; 
+z-index:1; 
+overflow:hidden; 
+border-radius:3px; 
+font-size:1.5em; 
+text-align:center; 
+}
+
+.btn_social ul li a  { 
+
+width:50px; 
+height:50px; 
+line-height:53px; 
+display:block; 
+text-decoration:none; 
+color:#fff; 
+transition:.4s;
+
+}
+
+.btn_social ul li::before { 
+
+transition:0.4s; 
+position:absolute; 
+content:''; 
+width:100%; 
+height:100%; 
+top:90%; 
+left:0; 
+background:#2fcacf; 
+z-index:-1; 
+transform: scale(1); 
+transition:.4s; 
+}
+
+.btn_social ul li:hover::before { transition:0.4s; top:0%; }
+.btn_social ul li a:hover       { color:#555555; }
+
+/* Estilos do título centralizado */
+.main-title {
+            font-size: 24px;
+            margin-top: 20px; /* Espaço superior */
+        }
+
+
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <div class="logo">
+            <img src="seu-logo.png" alt="Logo da Sua Empresa">
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">AGENDAMENTO</a></li>
+                <li><a href="contato.html">CONTATO</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="contact-container">
+        <img class="company-logo" src="seu-logo.png" alt="Logo da Sua Empresa">
+        <h1 class="company-name">Sua Empresa</h1>
+        <p class="company-address">Endereço da Sua Empresa, Cidade, Estado, CEP</p>
+        <nav class="btn_social">
+           
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+            <ul>
+                <li><a href="#" target="_blank" title="Facebook"><i class="fab fa-facebook"></i> Facebook</a></li>                
+                <li><a href="#" target="_blank" title="Instagram"><i class="fab fa-instagram"></i> Instagram</a></li>  
+                <li><a href="#" target="_blank" title="Instagram"><i class="fab fa-whatsapp"></i> Whatsapp</a></li>               
+             
+                             
+            </ul>
+         </nav>
+    </div>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <p>&copy; 2023 Sua Empresa. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>

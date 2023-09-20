@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica de Nutrição</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilos para o cabeçalho principal */
+        .main-header {
+            background-color: #000; /* Fundo preto */
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Estilos para o logotipo */
+        .logo img {
+            max-width: 150px;
+            vertical-align: middle; /* Alinhar verticalmente o logotipo */
+        }
+
+        /* Estilos para o menu principal */
+        .main-nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .main-nav ul li {
+            margin-right: 20px;
+        }
+
+        .main-nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        /* Efeito de hover para os links do menu */
+        .main-nav ul li a:hover {
+            color: #ff9900; /* Cor de destaque no hover */
+        }
+
+        /* Estilos para o conteúdo do rodapé */
+        .main-footer {
+            background-color: #000; /* Fundo preto */
+            color: #fff; /* Letras brancas */
+            text-align: center;
+            padding: 20px 0;
+            width: 100%;
+            position: absolute; /* Fixa o rodapé na parte inferior */
+            bottom: 0; /* Alinha o rodapé na parte inferior */
+        }
+
+        /* Estilos para o texto de direitos autorais */
+        .main-footer p {
+            margin: 0;
+        }
+
+        /* Ocultar o botão do Instagram */
+        .social-media {
+            display: none;
+        }
+
+        /* Adicione seus estilos CSS personalizados aqui */
+        /* Estilos para o formulário de agendamento */
+        .calendar-container {
+            text-align: center;
+            margin: 20px;
+        }
+
+        .calendar-select {
+            padding: 10px;
+            font-size: 16px;
+            margin-right: 10px;
+            border: 1px solid #ccc; /* Adicione uma borda cinza */
+            border-radius: 5px; /* Adicione cantos arredondados */
+        }
+
+        .calendar-select:focus {
+            outline: none; /* Remova a borda de foco ao clicar */
+            border-color: #007acc; /* Mude a cor da borda ao clicar */
+        }
+
+        #horarios-disponiveis {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        #horarios-disponiveis label {
+            display: block;
+            margin-bottom: 10px;
+            color: #333;
+            font-size: 16px;
+        }
+
+        #horarios-disponiveis select {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        .confirm-button {
+            background-color: #007acc;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            display: none;
+            margin-top: 20px;
+        }
+
+        .confirm-button:hover {
+            background-color: #0056b3;
+        }
+
+        #horarios-disponiveis {
+            margin: 0 auto;
+            width: fit-content;
+            text-align: center;
+            margin-top: 40px; /* Aumente o valor da margem superior para ajustar o espaçamento */
+        }
+
+        /* Estilos para o relatório */
+        .relatorio {
+            background-color: #f4f4f4; /* Cor de fundo cinza claro */
+            padding: 20px; /* Espaçamento interno */
+            border: 1px solid #ccc; /* Borda cinza */
+            border-radius: 5px; /* Cantos arredondados */
+            margin-top: 20px; /* Espaçamento superior */
+            text-align: center; /* Alinhamento central de texto */
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Sombra suave */
+        }
+
+        .relatorio h2 {
+            font-size: 24px; /* Tamanho da fonte do título */
+            margin-bottom: 15px; /* Espaçamento inferior do título */
+            color: #333; /* Cor do título */
+        }
+
+        .relatorio p {
+            font-size: 18px; /* Tamanho da fonte dos parágrafos */
+            margin-bottom: 10px; /* Espaçamento inferior entre os parágrafos */
+            color: #555; /* Cor do texto */
+        }
+
+        /* Estilos para destacar o código de agendamento */
+        .relatorio .codigo-agendamento {
+            font-weight: bold; /* Texto em negrito */
+            color: #007acc; /* Cor azul para destacar */
+        }
+
+        /* Estilos para o fundo do relatório */
+        .fundo-relatorio {
+            background-image: url('seu-fundo.jpg'); /* Substitua pelo caminho da sua imagem de fundo */
+            background-size: cover; /* Cobrir todo o elemento */
+            background-repeat: no-repeat; /* Não repetir a imagem */
+            background-position: center center; /* Centralizar a imagem */
+            padding: 50px; /* Espaçamento interno */
+            text-align: center; /* Alinhamento central de texto */
+            color: #fff; /* Cor do texto no fundo */
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <div class="logo">
+            <img src="seu-logo.png" alt="Logo da Clínica de Nutrição">
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">AGENDAMENTO</a></li>
+                <li><a href="contato.html">CONTATO</a></li>
+            </ul>
+        </nav>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+
+    </header>
+
+    
+    <div class="content-container">
+        <div class="left-column">
+            <!-- Conteúdo da coluna esquerda aqui -->
+        </div>
+
+        <div class="middle-column">
+            <div class="calendar-container">
+                <!-- Seu formulário de agendamento aqui -->
+                <label for="ano">Ano:</label>
+                <select id="ano" class="calendar-select">
+                    <option value="2023">2023</option>
+                    <option value="2024">2024</option>
+                    <!-- Adicione mais anos, se necessário -->
+                </select>
+
+                <label for="mes">Mês:</label>
+                <select id="mes" class="calendar-select">
+                    <option value="1">Janeiro</option>
+                    <option value="2">Fevereiro</option>
+                    <!-- Adicione os outros meses aqui -->
+                </select>
+
+                <label for="dia">Dia:</label>
+                <select id="dia" class="calendar-select">
+                    <!-- Os dias serão preenchidos dinamicamente com JavaScript -->
+                </select>
+
+                <div id="horarios-disponiveis">
+                    <!-- Os horários serão exibidos aqui após a escolha do dia -->
+                    <label for="horario">Horário:</label>
+                    <select id="horario" class="calendar-select">
+                        <option value="9:00">9:00</option>
+                        <option value="10:00">10:00</option>
+                        <option value="11:00">11:00</option>
+                        <!-- Adicione outros horários aqui -->
+                    </select>
+
+                    <button id="gerar-pdf" class="confirm-button">Gerar PDF do Relatório</button>
+
+                    <button id="confirmar-agenda" class="confirm-button">Confirmar Agenda</button>
+                </div>
+
+                <div id="relatorio-container"></div>
+            </div>
+        </div>
+
+        <div class="right-column">
+            <!-- Conteúdo da coluna direita aqui -->
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <p>&copy; 2023 Clínica de Nutrição. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript para preencher dinamicamente o campo de seleção do dia com base no mês selecionado
+        const anoSelect = document.getElementById('ano');
+        const mesSelect = document.getElementById('mes');
+        const diaSelect = document.getElementById('dia');
+        const horarioSelect = document.getElementById('horario');
+        const confirmButton = document.getElementById('confirmar-agenda');
+
+        // Defina os valores iniciais para os menus suspensos de mês e dia
+        const meses = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+        const diasNoMes = 31; // Valor inicial para o número de dias
+
+        for (let i = 0; i < meses.length; i++) {
+            const option = document.createElement('option');
+            option.value = i + 1;
+            option.textContent = meses[i];
+            mesSelect.appendChild(option);
+        }
+
+        for (let i = 1; i <= diasNoMes; i++) {
+            const option = document.createElement('option');
+            option.value = i;
+            option.textContent = i;
+            diaSelect.appendChild(option);
+        }
+
+        // Função para atualizar os dias com base no mês selecionado
+        mesSelect.addEventListener('change', () => {
+            const mesSelecionado = mesSelect.value;
+            const diasNoMes = new Date(anoSelect.value, mesSelecionado, 0).getDate();
+
+            diaSelect.innerHTML = ''; // Limpar as opções de dia
+
+            for (let i = 1; i <= diasNoMes; i++) {
+                const option = document.createElement('option');
+                option.value = i;
+                option.textContent = i;
+                diaSelect.appendChild(option);
+            }
+        });
+
+        // Função para verificar se todos os campos foram selecionados
+        function verificarCampos() {
+            const anoSelecionado = document.getElementById('ano').value;
+            const mesSelecionado = document.getElementById('mes').value;
+            const diaSelecionado = document.getElementById('dia').value;
+            const horarioSelecionado = document.getElementById('horario').value;
+            const confirmButton = document.getElementById('confirmar-agenda');
+
+            // Verifique se todos os campos foram selecionados
+            if (anoSelecionado && mesSelecionado && diaSelecionado && horarioSelecionado) {
+                confirmButton.style.display = 'block'; // Exibir o botão "Confirmar Agenda"
+            } else {
+                confirmButton.style.display = 'none'; // Ocultar o botão se algum campo estiver vazio
+            }
+        }
+
+        // Adicione ouvintes de evento aos menus suspensos
+        document.getElementById('ano').addEventListener('change', verificarCampos);
+        document.getElementById('mes').addEventListener('change', verificarCampos);
+        document.getElementById('dia').addEventListener('change', verificarCampos);
+        document.getElementById('horario').addEventListener('change', verificarCampos);
+
+        // Ouvinte de evento para o botão "Confirmar Agenda"
+        document.getElementById('confirmar-agenda').addEventListener('click', () => {
+            alert('Agendamento confirmado!'); // Exemplo de mensagem de confirmação
+        });
+
+        function gerarRelatorio() {
+            const anoSelecionado = document.getElementById('ano').value;
+            const mesSelecionado = document.getElementById('mes').value;
+            const diaSelecionado = document.getElementById('dia').value;
+            const horarioSelecionado = document.getElementById('horario').value;
+
+            // Gerar um código aleatório (ou lógica específica)
+            const codigo = Math.floor(Math.random() * 10000); // Isso gera um número aleatório de 0 a 9999
+
+            // Criar o elemento HTML para exibir o relatório
+            const relatorio = document.createElement('div');
+            relatorio.classList.add('relatorio');
+            relatorio.innerHTML = `
+                <h2>Relatório de Agendamento</h2>
+                <p>Ano: ${anoSelecionado}</p>
+                <p>Mês: ${mesSelecionado}</p>
+                <p>Dia: ${diaSelecionado}</p>
+                <p>Horário: ${horarioSelecionado}</p>
+                <p class="codigo-agendamento">Código: ${codigo}</p>
+            `;
+
+            // Obtém o elemento de contêiner para o relatório
+            const relatorioContainer = document.getElementById('relatorio-container');
+
+            // Limpa qualquer conteúdo anterior no contêiner
+            relatorioContainer.innerHTML = '';
+
+            // Adiciona o relatório ao contêiner
+            relatorioContainer.appendChild(relatorio);
+        }
+
+        // Adicione um ouvinte de evento ao botão "Confirmar Agenda"
+        document.getElementById('confirmar-agenda').addEventListener('click', gerarRelatorio);
+
+        // Função para gerar o PDF do relatório
+function gerarPDF() {
+    const doc = new jsPDF();
+    doc.setFontSize(16);
+    doc.text("Relatório de Agendamento", 10, 10);
+    
+    const relatorio = document.querySelector('.relatorio');
+    const codigoAgendamento = document.querySelector('.codigo-agendamento');
+    
+    const relatorioHTML = relatorio.innerHTML;
+    const codigoHTML = codigoAgendamento.innerHTML;
+    
+    // Adicione o conteúdo HTML do relatório ao PDF
+    doc.fromHTML(`
+        <h2>Relatório de Agendamento</h2>
+        ${relatorioHTML}
+        ${codigoHTML}
+    `, 10, 20);
+    
+    // Salve o PDF
+    doc.save('relatorio.pdf');
+}
+
+// Adicione um ouvinte de evento ao botão "Gerar PDF do Relatório"
+document.getElementById('gerar-pdf').addEventListener('click', gerarPDF);
+
+    </script>
+</body>
+</html>

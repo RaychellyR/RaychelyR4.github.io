@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica de Nutrição</title>
+    <!-- Correção no link para o arquivo de estilo -->
+    <link rel="stylesheet" type="text/css" href="css/estilos.css">
+    <!-- Restante do seu código permanece igual -->
+    <style>
+        /* Estilos globais */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        /* Estilos do cabeçalho */
+        .main-header {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .main-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .main-nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        .main-nav ul li:last-child {
+            margin-right: 0;
+        }
+
+        .main-nav ul li a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .main-nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .social-media {
+            font-size: 24px;
+        }
+
+        /* Estilos do formulário */
+        #agendamento {
+            background-color: #fff;
+            padding: 2rem;
+        }
+
+        .formulario-agendamento {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .formulario-agendamento h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .formulario-agendamento label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .formulario-agendamento input[type="text"],
+        .formulario-agendamento input[type="email"],
+        .formulario-agendamento input[type="tel"],
+        .formulario-agendamento select,
+        .formulario-agendamento textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .formulario-agendamento button {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .formulario-agendamento button:hover {
+            background-color: #555;
+        }
+
+        /* Estilos do rodapé */
+        .main-footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+        }
+
+        .footer-content p {
+            margin: 0;
+
+        /*ESTILO CSS FORMULARIO NOME ================================================*/
+        }
+        .nome-completo {
+            margin-bottom: 20px;
+        }
+
+        .nome-completo label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .nome-completo input[type="text"] {
+            width: 50%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #d4d1d1;
+        }
+
+        .nome-completo input[type="text"]:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+       
+        /* ESTILO CSS FORMULARIO E-MAIL =======================================================*/
+
+       .contato {
+    margin-bottom: 20px;
+        }
+
+        .contato label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+        }
+
+        .contato input[type="email"] {
+    width: 50%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #d4d1d1;
+
+        }
+
+        .contato input[type="email"]:focus {
+    border-color: #007bff;
+    outline: none;
+
+        }
+   
+        /* ESTILO CSS FORMULARIO E-MAIL =======================================================*/
+        
+        .contato {
+            margin-bottom: 20px;
+        }
+
+        .contato label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .contato input[type="text"] {
+            width: 35%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #d4d1d1;
+        }
+
+        .contato input[type="text"]:focus {
+            border-color: #007bff;
+            outline: none;
+
+        }
+
+        /* ESTILO CSS FORMULARIO RUA E Nº =======================================================*/
+
+        .endereco {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .endereco label {
+            font-weight: bold;
+        }
+
+        .endereco input[type="text"] {
+            width: 50%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #d4d1d1;
+        }
+
+        .endereco input[type="text"]:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+    
+        /* ESTILO CSS FORMULARIO ESTADO =======================================================*/
+
+        .endereco {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .endereco label {
+            font-weight: bold;
+        }
+
+        .endereco select {
+            width: 30%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 3px; /* Ajuste o espaçamento superior aqui */
+            background-color: #d4d1d1;
+        }
+
+        .endereco select:focus {
+            border-color: #007bff;
+            outline: none;
+            background-color: #ffffff;
+        }
+
+        /* ESTILO CSS FORMULARIO CIDADE  =======================================================*/
+
+        .endereco #cidade {
+            width: 30%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 3px;
+        }
+
+        
+
+        /* Estilo para o campo de estado */
+        .endereco #estado {
+            width: 30%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 3px;
+        }
+
+        .cidade select:focus {
+            border-color: #007bff;
+            outline: none;
+            background-color: #ffffff;
+
+        }
+
+    /* ESTILO CSS FORMULARIO CEP  =======================================================*/
+
+    .endereco #cep {
+        width: 20%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-top: 3px;
+        background-color: #d4d1d1;
+    }
+
+    /* ESTILO CSS FORMULARIO DATA DE NASCIMENTO  =======================================================*/
+
+    .idade {
+    margin-top: 10px;
+}
+
+    .idade label {
+    display: block;
+    font-weight: bold;
+}
+
+    .idade input[type="date"] {
+    width: 30%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #d4d1d1;
+}
+
+    /* ESTILO CSS FORMULARIO SEXO  =======================================================*/
+
+    .sexo {
+    margin-top: 10px;
+}
+
+    .sexo label {
+    display: block;
+    font-weight: bold;
+}
+
+    .sexo select {
+    width: 20%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+    /* ESTILO CSS FORMULARIO ALTURA E PESO  =======================================================*/
+
+    .altura,
+        .peso {
+            margin-top: 10px;
+        }
+
+        .altura label,
+        .peso label {
+            display: block;
+            font-weight: bold;
+        }
+
+        .altura input,
+        .peso input {
+            width: 50%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #d4d1d1;
+
+        }
+
+        /* Estilo para a exibição do IMC */
+        .resultado-imc {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        /* ESTILO CSS FORMULARIO EXERCICIO  =======================================================*/
+
+
+        .exercicio {
+            margin-top: 10px;
+        }
+
+        .exercicio label {
+            display: block;
+            font-weight: bold;
+        }
+
+        .exercicio input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        /* ESTILO CSS FORMULARIO MEDICAMENTOS  =======================================================*/
+
+        .medicamentos {
+            margin-top: 10px;
+        }
+
+        .medicamentos label {
+            display: block;
+            font-weight: bold;
+        }
+
+        /* Estilo para as caixas de seleção */
+        .checkbox-option {
+            margin-right: 10px;
+        }
+
+        /* Estilo para o campo de nome do medicamento (inicialmente oculto) */
+        .medicamento-nome {
+            display: none;
+            margin-top: 10px;
+        }
+
+        .medicamento-nome label {
+            display: block;
+        }
+
+        .medicamento-nome input[type="text"] {
+            width: 100%;
+            padding: 5px;
+        }
+
+        /* Estilo para mostrar o campo de nome quando "Sim" é selecionado */
+        .checkbox-option input[type="checkbox"]:checked ~ .medicamento-nome {
+            display: block;
+        }
+
+        /* ESTILO CSS FORMULARIO NUTRICIONISTA  =======================================================*/
+
+
+        .consultaNutricionista {
+            margin-top: 10px;
+        }
+
+        .consultaNutricionista label {
+            display: block;
+            font-weight: bold;
+           
+        }
+
+        /* Estilo para o campo de motivo da consulta (inicialmente oculto) */
+        .motivoConsulta {
+            display: none;
+            margin-top: 10px;
+            
+        }
+
+        .motivoConsulta label {
+            display: block;
+        }
+
+        .motivoConsulta textarea {
+            width: 100%;
+            padding: 5px;
+            background-color: #d4d1d1;
+        }
+
+        /* ESTILO CSS FORMULARIO OBJETIVO  =======================================================*/
+
+        .motivoConsulta {
+            display: none;
+            margin-top: 10px;
+        }
+
+        .motivoConsulta label {
+            display: block;
+        }
+
+        .motivoConsulta textarea {
+            width: 100%;
+            min-height: 100px; /* Defina a altura mínima desejada em pixels */
+            padding: 5px;
+        }
+
+        /* Estilo para o campo "Outro Objetivo" (inicialmente oculto) */
+        .outroObjetivo {
+            display: none;
+            margin-top: 10px;
+        }
+
+        .outroObjetivo label {
+            display: block;
+        }
+
+        .outroObjetivo textarea {
+            width: 100%;
+            min-height: 900px; /* Defina a altura mínima desejada em pixels */
+            padding: 5px;
+        }
+
+        /* ESTILO CSS FORMULARIO DIFICULDADES =======================================================*/
+
+        .dificuldade {
+            margin-top: 10px;
+        }
+
+        .dificuldade label {
+            display: block;
+            font-weight: bold;
+        }
+
+        .dificuldade select {
+            width: 50%;
+            padding: 5px;
+        }
+
+        /* ESTILO CSS FORMULARIO PERGUNTAS =======================================================*/
+
+        .doenca {
+    margin-bottom: 20px;
+}
+
+.doenca label {
+    display: block;
+    font-weight: bold;
+}
+
+.doenca select {
+    width: 50%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+}
+
+/* Estilize as opções do select se necessário */
+.doenca select option {
+    font-size: 16px;
+}
+/* Estilo para o botão de Agendar Consulta */
+.agendar-consulta-button {
+    background-color: #007bff; /* Cor de fundo do botão */
+    color: #fff; /* Cor do texto do botão */
+    padding: 10px 20px; /* Espaçamento interno (topo/baixo e esquerda/direita) */
+    border: none; /* Removendo a borda do botão */
+    border-radius: 5px; /* Borda arredondada */
+    font-size: 18px; /* Tamanho da fonte */
+    text-decoration: none; /* Removendo sublinhado padrão em links */
+    cursor: pointer; /* Alterar o cursor para uma mão quando passar o mouse sobre o botão */
+}
+
+/* Estilo para o botão quando hover (passar o mouse sobre) */
+.agendar-consulta-button:hover {
+    background-color: #0056b3; /* Cor de fundo mais escura ao passar o mouse */
+}
+
+
+
+
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <div class="logo">
+            <img src="seu-logo.png" alt="Logo da Clínica de Nutrição">
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">AGENDAMENTO</a></li>
+                <li><a href="contato.html">CONTATO</a></li>
+            </ul>
+        
+    </header>
+
+    <section id="agendamento">
+        <h1>Agendamento</h1>
+        <div class="formulario-agendamento">
+            <form action="processar_agendamento.php" method="post">
+                <h2>Informações Pessoais</h2>
+                <div class="nome-completo">
+                    <label for="nome">Nome Completo:</label>
+                    <input type="text" id="nome" name="nome" required>
+                </div>
+                <div class="contato">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                
+                
+                </div>
+                <div class="contato">
+                    <label for="telefone">Telefone:</label>
+                    <input type="text" id="telefone" name="telefone" required oninput="formatarTelefone(this)">
+                </div>
+            
+                <script>
+                    function formatarTelefone(input) {
+                        // Remove todos os caracteres não numéricos
+                        var numeros = input.value.replace(/\D/g, '');
+            
+                        // Aplica a formatação (xx) xxxxx-xxxx
+                        var formatacao = '(' + numeros.substring(0, 2) + ') ' + numeros.substring(2, 7) + '-' + numeros.substring(7, 11);
+            
+                        // Define o valor do campo com a formatação
+                        input.value = formatacao;
+                    }
+                </script>
+
+                        <div class="endereco">
+                            <label for="rua-numero">Rua e Nº:</label>
+                            <input type="text" id="rua-numero" name="rua-numero" required>
+                        </div>
+                        
+                <div class="endereco">
+        <label for="estado">Estado:</label>
+        <select id="estado" name="estado" required>
+            <option value="" disabled selected>Selecione o Estado</option>
+            <option value="AC">Acre</option>
+            <option value="AL">Alagoas</option>
+            <option value="AP">Amapá</option>
+            <option value="AM">Amazonas</option>
+            <option value="BA">Bahia</option>
+            <option value="CE">Ceará</option>
+            <option value="DF">Distrito Federal</option>
+            <option value="ES">Espírito Santo</option>
+            <option value="GO">Goiás</option>
+            <option value="MA">Maranhão</option>
+            <option value="MT">Mato Grosso</option>
+            <option value="MS">Mato Grosso do Sul</option>
+            <option value="MG">Minas Gerais</option>
+            <option value="PA">Pará</option>
+            <option value="PB">Paraíba</option>
+            <option value="PR">Paraná</option>
+            <option value="PE">Pernambuco</option>
+            <option value="PI">Piauí</option>
+            <option value="RJ">Rio de Janeiro</option>
+            <option value="RN">Rio Grande do Norte</option>
+            <option value="RS">Rio Grande do Sul</option>
+            <option value="RO">Rondônia</option>
+            <option value="RR">Roraima</option>
+            <option value="SC">Santa Catarina</option>
+            <option value="SP">São Paulo</option>
+            <option value="SE">Sergipe</option>
+            <option value="TO">Tocantins</option>
+        </select>
+
+                <div class="endereco">
+                    <label for="cidade">Cidade:</label>
+                    <select id="cidade" name="cidade" required>
+                        <option value="" disabled selected>Selecione o Estado primeiro</option>
+                        <!-- As opções de cidades serão preenchidas dinamicamente com JavaScript -->
+                    </select>
+                </div>
+
+                <script>
+                    // Mapeamento de cidades por estado (substitua com as cidades reais)
+                    const cidadesPorEstado = {
+                        AC: ["Cidade 1", "Cidade 2", "Cidade 3"],
+                        AL: ["Cidade A", "Cidade B", "Cidade C"],
+                        // Adicione mais cidades para outros estados aqui
+                    };
+            
+                    const estadoSelect = document.getElementById("estado");
+                    const cidadeSelect = document.getElementById("cidade");
+            
+                    // Função para preencher o campo de cidade com base no estado selecionado
+                    estadoSelect.addEventListener("change", () => {
+                        const estadoSelecionado = estadoSelect.value;
+                        const cidades = cidadesPorEstado[estadoSelecionado] || [];
+            
+                        // Limpa as opções existentes
+                        cidadeSelect.innerHTML = '<option value="" disabled selected>Selecione a Cidade</option>';
+            
+                        // Adiciona as novas opções
+                        cidades.forEach((cidade) => {
+                            const option = document.createElement("option");
+                            option.value = cidade;
+                            option.text = cidade;
+                            cidadeSelect.appendChild(option);
+                        });
+                    });
+                </script>
+
+
+                <div class="endereco">
+                    <label for="cep">CEP:</label>
+                    <input type="text" id="cep" name="cep" required pattern="[0-9]{8}" title="Digite um CEP válido (8 dígitos numéricos)">
+                </div>
+
+                <div class="idade">
+                    <label for="data_nascimento">Data de Nascimento:</label>
+                    <input type="date" id="data_nascimento" name="data_nascimento" required>
+                </div>
+                <div class="sexo">
+                    <label for="sexo">Sexo:</label>
+                    <select id="sexo" name="sexo" required>
+                        <option value="" disabled selected>Selecione o Sexo</option>
+                        <option value="masculino">Masculino</option>
+                        <option value="feminino">Feminino</option>
+                    </select>
+                </div>
+
+                <div class="altura">
+                    <label for="altura">Altura (metros):</label>
+                    <input type="number" id="altura" name="altura" step="0.01" min="0" placeholder="Ex: 1.75" required>
+                </div>
+                <div class="peso">
+                    <label for="peso">Peso (kg):</label>
+                    <input type="number" id="peso" name="peso" step="0.1" min="0" placeholder="Ex: 70.5" required>
+                </div>
+                <div class="resultado-imc">
+                    <span>IMC:</span>
+                    <span id="resultado">-</span>
+                </div>
+            
+                <script>
+                    // Função para calcular o IMC
+                    function calcularIMC() {
+                        const altura = parseFloat(document.getElementById('altura').value);
+                        const peso = parseFloat(document.getElementById('peso').value);
+            
+                        if (!isNaN(altura) && !isNaN(peso)) {
+                            const imc = peso / (altura * altura);
+                            document.getElementById('resultado').textContent = imc.toFixed(2);
+                        } else {
+                            document.getElementById('resultado').textContent = '-';
+                        }
+                    }
+            
+                    // Adicionar um ouvinte de evento de input para os campos de altura e peso
+                    document.getElementById('altura').addEventListener('input', calcularIMC);
+                    document.getElementById('peso').addEventListener('input', calcularIMC);
+            
+                    // Calcular o IMC inicial
+                    calcularIMC();
+                </script>
+
+                    <div class="exercicio">
+                        <label>Pratica exercícios regularmente?</label>
+                        <select id="exercicio" name="exercicio" required>
+                            <option value="" disabled selected>Escolha uma opção</option>
+                            <option value="nunca">Nunca pratiquei exercício</option>
+                            <option value="regularmente">Pratico regularmente</option>
+                            <option value="sempre">Sempre pratico exercício</option>
+                        </select>
+                    </div>
+
+                    <div class="medicamento">
+                        <label>Faz uso de medicamento controlado?</label>
+                        <select id="medicamento" name="medicamento" required>
+                            <option value="" disabled selected>Escolha uma opção</option>
+                            <option value="nunca">Não uso medicamento</option>
+                            <option value="regularmente">Sim uso medicamento</option>
+                        </select>
+                    </div>
+                
+                    <div class="nome-medicamento" id="nomeMedicamento">
+                        <label for="nome-medicamento">Nome do Medicamento:</label>
+                        <input type="text" id="nome-medicamento" name="nome-medicamento">
+                    </div>
+                
+                    <script>
+                        // Função para mostrar/ocultar o campo de nome do medicamento com base na seleção do usuário
+                        const selectMedicamento = document.getElementById('medicamento');
+                        const nomeMedicamento = document.getElementById('nomeMedicamento');
+                
+                        selectMedicamento.addEventListener('change', function () {
+                            if (selectMedicamento.value === 'regularmente') {
+                                nomeMedicamento.style.display = 'block';
+                            } else {
+                                nomeMedicamento.style.display = 'none';
+                            }
+                        });
+                    </script>
+
+<div class="consultaNutricionista">
+    <label>Já realizou consulta com Nutricionista?</label>
+    <select id="nutricionista" name="nutricionista" required>
+        <option value="" disabled selected>Escolha uma opção</option>
+        <option value="sim">Já fui ao nutricionista</option>
+        <option value="não">Nunca fui ao nutricionista</option>
+    </select>
+</div>
+
+<div class="motivoConsulta" id="motivoConsulta">
+    <label for="motivo-consulta">Motivo da Última Consulta com Nutricionista:</label>
+    <textarea id="motivo-consulta" name="motivo-consulta" rows="4"></textarea>
+</div>
+
+<script>
+    // Função para mostrar/ocultar o campo de motivo da consulta com nutricionista com base na seleção do usuário
+    const selectNutricionista = document.getElementById('nutricionista');
+    const motivoConsulta = document.getElementById('motivoConsulta');
+
+    selectNutricionista.addEventListener('change', function () {
+        if (selectNutricionista.value === 'sim') {
+            motivoConsulta.style.display = 'block';
+        } else {
+            motivoConsulta.style.display = 'none';
+        }
+    });
+</script>
+
+
+<div class="objetivo">
+    <label for="objetivo">Qual seu principal objetivo?</label>
+    <select id="objetivo" name="objetivo" required>
+        <option value="" disabled selected>Escolha seu objetivo</option>
+        <option value="perda-de-peso">Perda de peso</option>
+        <option value="ganho-de-massa">Ganho de massa muscular</option>
+        <option value="melhor-saude">Melhorar a saúde geral</option>
+        <option value="gerenciamento-alimentar">Gerenciamento alimentar</option>
+        <option value="outro">Outro</option>
+    </select>
+</div>
+
+<div class="outroObjetivo" id="outroObjetivo">
+    <label for="descricao-outro-objetivo">Descreva seu objetivo:</label>
+    <input type="text" id="descricao-outro-objetivo" name="descricao-outro-objetivo">
+</div>
+<script>
+    // Função para mostrar/ocultar o campo "Outro Objetivo" com base na seleção do usuário
+const selectObjetivo = document.getElementById('objetivo');
+const outroObjetivo = document.getElementById('outroObjetivo');
+
+selectObjetivo.addEventListener('change', function () {
+    if (selectObjetivo.value === 'outro') {
+        outroObjetivo.style.display = 'block';
+    } else {
+        outroObjetivo.style.display = 'none';
+    }
+});
+</script>
+
+</script>
+
+                
+                <div class="dificuldade">
+                    <label for="dificuldade">Quais as principais dificuldades encontradas?</label>
+                    <select id="dificuldade" name="dificuldade" required>
+                        <option value="" disabled selected>Escolha as dificuldades</option>
+                        <option value="falta-tempo">Falta de tempo</option>
+                        <option value="falta-motivacao">Falta de motivação</option>
+                        <option value="dificuldades-alimentares">Dificuldades alimentares</option>
+                        <option value="outras">Outras</option>
+                    </select>
+                </div>
+                          
+                
+
+                <a href="confirmacao.html" class="agendar-consulta-button">Agendar Consulta</a>
+            </form>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <p>&copy; 2023 Clínica de Nutrição. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        function agendarConsulta() {
+            // Validar todos os campos antes de redirecionar para a página de pagamento
+            const nome = document.getElementById('nome').value;
+            const email = document.getElementById('email').value;
+            const telefone = document.getElementById('telefone').value;
+            const ruaNumero = document.getElementById('rua-numero').value;
+            const estado = document.getElementById('estado').value;
+            const cidade = document.getElementById('cidade').value;
+            const cep = document.getElementById('cep').value;
+            const dataNascimento = document.getElementById('data_nascimento').value;
+            const sexo = document.getElementById('sexo').value;
+            const altura = document.getElementById('altura').value;
+            const peso = document.getElementById('peso').value;
+            const exercicio = document.querySelector('input[name="exercicio"]:checked');
+            const medicamentos = document.querySelector('input[name="medicamentos"]:checked');
+            const consultaNutricionista = document.querySelector('input[name="consulta_nutricionista"]:checked');
+            const objetivo = document.getElementById('objetivo').value;
+            const dificuldade = document.getElementById('dificuldade').value;
+            const doenca = document.querySelector('input[name="doenca"]:checked');
+            const alergiaIntolerancia = document.querySelector('input[name="alergia_intolerancia"]:checked');
+            const usaSuplemento = document.querySelector('input[name="usa_suplemento"]:checked');
+            const consumoAlcool = document.getElementById('consumo_alcool').value;
+            const examesBioquimicos = document.querySelector('input[name="exames_bioquimicos"]:checked');
+
+            if (
+                nome === "" || email === "" || telefone === "" || ruaNumero === "" || estado === "" ||
+                cidade === "" || cep === "" || dataNascimento === "" || sexo === "" || altura === "" ||
+                peso === "" || exercicio === null || medicamentos === null || consultaNutricionista === null ||
+                objetivo === "" || dificuldade === "" || doenca === null || alergiaIntolerancia === null ||
+                usaSuplemento === null || consumoAlcool === "" || examesBioquimicos === null
+            ) {
+                alert("Por favor, preencha todos os campos obrigatórios antes de agendar a consulta.");
+            } else {
+                // Redirecionar para a página de pagamento
+                window.location.href = "pagina_de_pagamento.html";
+            }
+        }
+    </script>
+</body>
+</html>
